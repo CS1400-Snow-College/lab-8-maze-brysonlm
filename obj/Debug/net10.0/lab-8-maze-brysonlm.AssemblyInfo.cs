@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lab-8-maze-brysonlm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+986d2ba4e4ac021526e12b9488da4167d572ac73")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dfb5c88e804e9d491fbd085aec1f2a426ec79295")]
 [assembly: System.Reflection.AssemblyProductAttribute("lab-8-maze-brysonlm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lab-8-maze-brysonlm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

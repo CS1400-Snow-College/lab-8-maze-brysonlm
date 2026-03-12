@@ -63,4 +63,13 @@ do
     {
         TryMove(currentTop, currentLeft + 1, mazeData);
     }
+
+    //lets you win/ and end to the game.
+    if (mazeData[Console.CursorTop][Console.CursorLeft] == '*')
+    {
+        Console.Clear();
+        Console.WriteLine("Congratulations! You won!");
+        isPlaying = false;
+    }
+
 } while(isPlaying);
