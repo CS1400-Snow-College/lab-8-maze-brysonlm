@@ -1,5 +1,9 @@
 ﻿// Bryson, 03/11/2026, Lab 8: Maze
 
+//gives the function needed for the stopwatch
+using System.Diagnostics;
+
+
 // nice greeting
 Console.WriteLine("Welcome to the Maze Game!");
 Console.WriteLine("Reach the * to win. Press ESC to quit.");
@@ -26,6 +30,8 @@ foreach (string line in mazeData)
 //a the starting position
 Console.SetCursorPosition(0,0);
 bool isPlaying = true;
+//needed to add so you can win while still having the timer.
+bool hasWon = false;
 
 //the game moving loop/function
 void TryMove(int newTop, int newLeft, string[] maze)
@@ -36,6 +42,11 @@ void TryMove(int newTop, int newLeft, string[] maze)
 
     Console.SetCursorPosition(newLeft, newTop);
 }
+
+//extra start the timer
+Stopwatch missionTimer = new Stopwatch();
+missionTimer.Start();
+
 
 do
 {
@@ -65,11 +76,28 @@ do
     }
 
     //lets you win/ and end to the game.
+    //had to make new win condition
     if (mazeData[Console.CursorTop][Console.CursorLeft] == '*')
     {
-        Console.Clear();
-        Console.WriteLine("Congratulations! You won!");
+        hasWon = true;
         isPlaying = false;
     }
 
 } while(isPlaying);
+
+// stops timer
+missionTimer.Stop(); 
+Console.Clear();
+
+//displays if won or lost/just left.
+if (hasWon)
+{
+    Console.WriteLine("*********************************");
+    Console.WriteLine("   CONGRATULATIONS! YOU WON!     ");
+    Console.WriteLine($"   Time: {missionTimer.Elapsed.TotalSeconds:F2} seconds");
+    Console.WriteLine("*********************************");
+}
+else
+{
+    Console.WriteLine("Game Exited. Better luck next time!");
+}
