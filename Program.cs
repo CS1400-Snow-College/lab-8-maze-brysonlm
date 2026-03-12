@@ -15,3 +15,52 @@ if (!File.Exists(fileName))
 }
 
 string[] mazeData = File.ReadAllLines(fileName);
+
+// display the maze
+Console.Clear();
+foreach (string line in mazeData)
+{
+    Console.WriteLine(line);
+}
+
+//a the starting position
+Console.SetCursorPosition(0,0);
+bool isPlaying = true;
+
+//the game moving loop/function
+void TryMove(int newTop, int newLeft, string[] maze)
+{
+    if (newTop < 0 || newTop >= maze.Length) return;
+    if (newLeft < 0 || newLeft >= maze[newTop].Length) return;
+    if (maze[newTop][newLeft] == '#') return;
+
+    Console.SetCursorPosition(newLeft, newTop);
+}
+
+do
+{
+    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+    int currentTop = Console.CursorTop;
+    int currentLeft = Console.CursorLeft;
+
+    if (keyInfo.Key == ConsoleKey.Escape)
+    {
+        isPlaying = false;
+    }
+    else if (keyInfo.Key == ConsoleKey.UpArrow)
+    {
+        TryMove(currentTop - 1, currentLeft, mazeData);
+    }
+    else if ( keyInfo.Key == ConsoleKey.DownArrow)
+    {
+        TryMove(currentTop + 1, currentLeft,mazeData);
+    }
+    else if ( keyInfo.Key == ConsoleKey.LeftArrow)
+    {
+        TryMove(currentTop,currentLeft -1, mazeData);
+    }
+    else if ( keyInfo.Key == ConsoleKey.RightArrow)
+    {
+        TryMove(currentTop, currentLeft + 1, mazeData);
+    }
+} while(isPlaying);
